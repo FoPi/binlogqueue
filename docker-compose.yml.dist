@@ -46,8 +46,7 @@ services:
     depends_on:
       - zookeeper
     environment:
-      #KAFKA_ADVERTISED_HOST_NAME: 192.168.32.123
-      KAFKA_ADVERTISED_HOST_NAME: 192.168.0.17
+      KAFKA_ADVERTISED_HOST_NAME: [YOUR IP ADDRESS]
       KAFKA_CREATE_TOPICS: "test:1:1"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
@@ -72,7 +71,7 @@ services:
     links:
       - redis
     container_name: node
-  
+
   redisCommander:
     image: tenstartups/redis-commander
     command: --redis-host redis

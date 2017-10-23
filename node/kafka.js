@@ -1,6 +1,5 @@
 'use strict';
 
-const express = require('express');
 var kafka = require('kafka-node');
 
 var redis = require("redis");
@@ -27,6 +26,7 @@ console.log('waiting for messages!');
 consumer.on('message', function(message) {
 
     var d = JSON.parse(message.value);
+    console.log(d, message);
     redisClient.set(d.database +':'+ d.table, d.data.id,redis.print);
 
 });

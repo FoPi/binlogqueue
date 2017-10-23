@@ -1,6 +1,5 @@
 'use strict';
 
-const express = require('express');
 var amqp = require('amqp');
 var redis = require("redis");
 
